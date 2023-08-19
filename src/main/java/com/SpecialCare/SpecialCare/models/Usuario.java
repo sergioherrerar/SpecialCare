@@ -3,17 +3,11 @@ package com.SpecialCare.SpecialCare.models;
 public class Usuario {
 
     private Long id;
-    private String First_Name;
-    private String Second_Name;
+    private String Name;
     private String Lastname;
-    private String Second_Lastname;
     private String Email;
     private String Password;
     private String Phone_Number;
-
-    public String getFirst_Name() {
-        return First_Name;
-    }
 
     public Long getId() {
         return id;
@@ -23,16 +17,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public void setFirst_Name(String first_Name) {
-        First_Name = first_Name;
+    public String getName() {
+        return Name;
     }
 
-    public String getSecond_Name() {
-        return Second_Name;
-    }
-
-    public void setSecond_Name(String second_Name) {
-        Second_Name = second_Name;
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getLastname() {
@@ -41,14 +31,6 @@ public class Usuario {
 
     public void setLastname(String lastname) {
         Lastname = lastname;
-    }
-
-    public String getSecond_Lastname() {
-        return Second_Lastname;
-    }
-
-    public void setSecond_Lastname(String second_Lastname) {
-        Second_Lastname = second_Lastname;
     }
 
     public String getEmail() {

@@ -20,7 +20,7 @@ public class PetControllers {
         pet.setPet_tipe("Perro");
         pet.setBirthday_date("02/03/2023");
         pet.setAge("12");
-        pet.setGender("macho");
+        pet.setGender("Hembra");
 
        return pet;
     }
@@ -29,25 +29,25 @@ public class PetControllers {
         List<Pet> pets = new ArrayList<>();
         Pet pet = new Pet();
         pet.setId(123l);
-        pet.setName("Luna");
+        pet.setName("spiker");
         pet.setPet_tipe("Perro");
-        pet.setBirthday_date("02/03/2023");
+        pet.setBirthday_date("02/04/2023");
         pet.setAge("12");
         pet.setGender("macho");
 
         Pet pet2 = new Pet();
-        pet2.setId(123l);
-        pet2.setName("Luna");
+        pet2.setId(1234l);
+        pet2.setName("mailo");
         pet2.setPet_tipe("Perro");
-        pet2.setBirthday_date("02/03/2023");
+        pet2.setBirthday_date("02/01/2023");
         pet2.setAge("12");
         pet2.setGender("macho");
 
         Pet pet3 = new Pet();
-        pet3.setId(123l);
-        pet3.setName("Luna");
+        pet3.setId(12345l);
+        pet3.setName("tobi");
         pet3.setPet_tipe("Perro");
-        pet3.setBirthday_date("02/03/2023");
+        pet3.setBirthday_date("02/02/2023");
         pet3.setAge("12");
         pet3.setGender("macho");
 
