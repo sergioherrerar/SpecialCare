@@ -4,7 +4,7 @@ $(document).ready(function() {
   $('#pets').DataTable();
 });
 
-async function cagarPets() {
+async function cagarpets() {
 
   const request = await fetch('pets', {
     method: 'GET',
@@ -15,13 +15,15 @@ async function cagarPets() {
   });
 
   const pets = await request.json();
-  let listadoHtml = "";
-  for (let pet of pets){
-    let petHtml = '<tr><td>'+ pet.id +'</td><td>'+ pet.name +'</td><td>'+ pet.pet_Tipe +'</td><td>'+ pet.Birthday_date +'</td><td>'+ pet.age+'</td><td>'+ pet.danger
-     +'</td><a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a><a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-exclamation-triangle"></i></a><a href="#" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a></td></tr>';
 
-    listadoHtml += petHtml;
-  }
-document.querySelector("#pets tbody").outerHTML="listadoHtml";
+   let listadopetHtml = '';
+    for (let pet of pets) {
+      let botonEliminar = '<a href="#" onclick="eliminarPet(' + pet.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
 
-}
+      let petHtml = '<tr><td>'+pet.id+'</td><td>' + pet.name + ' ' + pet.pet_tipe+ '</td><td>'
+                      + pet.birthday_date+'</td><td>'+pet.age +'<td>'+pet.gender
+                      + '</td><td>' + botonEliminar + '</td></tr>';
+      listadopetHtml += petHtml;
+    }
+
+document.querySelector("#pets tbody").outerHTML=listadopetHtml;
