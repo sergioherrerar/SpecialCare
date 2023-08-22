@@ -1,23 +1,29 @@
 package com.SpecialCare.SpecialCare.controllers;
 
-import com.SpecialCare.SpecialCare.dao.DiseaseDao;
 import com.SpecialCare.SpecialCare.dao.UserDao;
-import com.SpecialCare.SpecialCare.models.Disease;
 import com.SpecialCare.SpecialCare.models.User;
+import com.SpecialCare.SpecialCare.utils.JwtUtil;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
-public class UserController implements UserDao{
+public class UserController {
     
     @Autowired
     private UserDao userDao;
     
+    @Autowired
+    private JwtUtil jwtUtil;
+    
     @RequestMapping(value = "api/users", method = RequestMethod.POST)
     public void register(@RequestBody User user) {
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        String hash = argon2.hash(1, 1024, 1, user.getPassword());
+        user.setPassword(hash);
         userDao.register(user);
     }
     
@@ -27,18 +33,26 @@ public class UserController implements UserDao{
     }
     
     @RequestMapping(value = "api/users")
-    public List<User> list() {
+    public List<User> list(@RequestHeader(value="Authorization") String token) {
+        if(!validateToken(token)){return null;};
         return userDao.list();
     }
     
     @RequestMapping(value = "api/users/{id}", method = RequestMethod.PUT)
-    public void update(@RequestBody User user) {
+    public void update(@RequestHeader(value="Authorization") String token, @RequestBody User user) {
+        if(!validateToken(token)){return;};
         userDao.update(user);
     }
     
     @RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable Long id) {
+    public void delete(@RequestHeader(value="Authorization") String token, @PathVariable Long id) {
+        if(!validateToken(token)){return;};
         userDao.delete(id);
+    }
+    
+    private boolean validateToken(String token){
+        String usuarioId = jwtUtil.getKey(token);
+        return usuarioId != null;
     }
     
 }

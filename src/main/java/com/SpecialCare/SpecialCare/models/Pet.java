@@ -35,6 +35,9 @@ public class Pet {
     @Column(name = "pet_type_id")
     private String petTypeId;
     
+    @Column(name = "gender")
+    private String gender;
+    
     @Column(name = "name")
     private String name;
     

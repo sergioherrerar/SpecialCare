@@ -62,8 +62,8 @@
                                                   <span class="input-group-text"><i class='fas fa-user color-principal'></i></span>
                                                 </div>
                                                 <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Correo Electrónico">
+                                                id="txtEmail" aria-describedby="emailHelp"
+                                                placeholder="Ingresa tu Email">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -73,12 +73,12 @@
                                                 </div>
 
                                                 <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Contraseña">
+                                                id="txtPassword" placeholder="Contraseña">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="d-flex justify-content-center align-items-center">
-                                            <a href="index.html" class="btn btn-primary btn-user btn-lg m-3">
+                                            <a onclick="login()" href="#" class="btn btn-primary btn-user btn-lg m-3">
                                                 Iniciar sesión
                                             </a>
                                             <a class="small m-3" href="register.html">Crear una Cuenta</a>
@@ -113,6 +113,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <script src="js/login.js"></script>
 
 </body>
 

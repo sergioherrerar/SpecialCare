@@ -8,6 +8,7 @@ import java.util.List;
 public interface UserDao {
   void register(User user);
   User get(Long id);
+  User getByCredentials(User user);
   List<User> list();
   void update(User user);
   void delete(Long id);
