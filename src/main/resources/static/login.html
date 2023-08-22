@@ -17,65 +17,74 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+
+        <link rel="preconnect" href="https://fo nts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,400;1,500&family=Varela+Round&display=swap" rel="stylesheet">
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+
 
 </head>
 
 <body class="bg-gradient-primary">
+
+    <div class="basic-nav-div"></div>
+
+    <div class="outer-container"></div>
 
     <div class="container">
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-6 col-lg-6 col-md-8">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="text-center mt-5">
+                    <img src="img/Logo.svg" alt="">
+                </div>
+
+                <div id="login-card" class="card mt-4 o-hidden border-0 shadow-lg ">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
+                            <div class="col-lg-12">
+                                <div class="pb-3 pt-5 pl-5 pr-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h2 class="text-principal-color mb-4">¡Bienvenido!</h2>
                                     </div>
                                     <form class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">   
+                                                  <span class="input-group-text"><i class='fas fa-user color-principal'></i></span>
+                                                </div>
+                                                <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                placeholder="Correo Electrónico">
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">   
+                                                  <span class="input-group-text"><i class='fas fa-lock color-principal'></i></span>
+                                                </div>
+
+                                                <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Contraseña">
+                                            </div>
+                                        </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <a href="index.html" class="btn btn-primary btn-user btn-lg m-3">
+                                                Iniciar sesión
+                                            </a>
+                                            <a class="small m-3" href="register.html">Crear una Cuenta</a>
+                                        </div>
+                                      
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -87,6 +96,13 @@
         </div>
 
     </div>
+
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#7662BD" fill-opacity="1" d="M0,128L34.3,160C68.6,192,137,256,206,261.3C274.3,267,343,213,411,160C480,107,549,53,617,53.3C685.7,53,754,107,823,149.3C891.4,192,960,224,1029,229.3C1097.1,235,1166,213,1234,181.3C1302.9,149,1371,107,1406,85.3L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>       <path fill="#43386B" fill-opacity="1" d="M0,64L26.7,101.3C53.3,139,107,213,160,250.7C213.3,288,267,288,320,272C373.3,256,427,224,480,218.7C533.3,213,587,235,640,240C693.3,245,747,235,800,197.3C853.3,160,907,96,960,106.7C1013.3,117,1067,203,1120,224C1173.3,245,1227,203,1280,181.3C1333.3,160,1387,160,1413,160L1440,160L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path>
+            <path fill="#43386B" fill-opacity="1" d="M0,160L34.3,176C68.6,192,137,224,206,208C274.3,192,343,128,411,122.7C480,117,549,171,617,176C685.7,181,754,139,823,112C891.4,85,960,75,1029,90.7C1097.1,107,1166,149,1234,160C1302.9,171,1371,149,1406,138.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+        </svg>
+
+    <div class="basic-nav-div" style="position: absolute; bottom: 0;"></div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

@@ -19,38 +19,64 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+
 
 </head>
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+    <div class="basic-nav-div"></div>
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="outer-container-2"></div>
+
+    <div class="container register-container">
+
+        <div class="card o-hidden border-0 shadow-lg mt-4">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
-                        <div class="p-5">
+                        <div class="pt-4 pb-5 px-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">¡Registrate!</h1>
                             </div>
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                            placeholder="Primer Nombre">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                            placeholder="Segundo Nombre">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                <div class="form-group row">
+                                
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Primer Apellido">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Segundo Apellido">
+                                    </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 mb-3 mb-sm-0">
+                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                            placeholder="Email">
+                                    </div>
+                                    
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Número Telefónico">
+                                    </div>
+
+                                </div>
+                                
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
@@ -62,22 +88,12 @@
                                     </div>
                                 </div>
                                 <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                    Registrar
                                 </a>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="login.html">¿Ya tienes una cuenta? ¡Ingresa!</a>
                             </div>
                         </div>
                     </div>
@@ -86,6 +102,15 @@
         </div>
 
     </div>
+
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#7662BD" fill-opacity="1" d="M0,128L34.3,160C68.6,192,137,256,206,261.3C274.3,267,343,213,411,160C480,107,549,53,617,53.3C685.7,53,754,107,823,149.3C891.4,192,960,224,1029,229.3C1097.1,235,1166,213,1234,181.3C1302.9,149,1371,107,1406,85.3L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>       <path fill="#43386B" fill-opacity="1" d="M0,64L26.7,101.3C53.3,139,107,213,160,250.7C213.3,288,267,288,320,272C373.3,256,427,224,480,218.7C533.3,213,587,235,640,240C693.3,245,747,235,800,197.3C853.3,160,907,96,960,106.7C1013.3,117,1067,203,1120,224C1173.3,245,1227,203,1280,181.3C1333.3,160,1387,160,1413,160L1440,160L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path>
+        <path fill="#43386B" fill-opacity="1" d="M0,160L34.3,176C68.6,192,137,224,206,208C274.3,192,343,128,411,122.7C480,117,549,171,617,176C685.7,181,754,139,823,112C891.4,85,960,75,1029,90.7C1097.1,107,1166,149,1234,160C1302.9,171,1371,149,1406,138.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+    </svg>
+
+    
+    <div class="basic-nav-div" style="position: absolute; bottom: 0;"></div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

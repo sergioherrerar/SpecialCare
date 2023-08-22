@@ -1,0 +1,161 @@
+:root {
+  --blue: #4e73df;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #e74a3b;
+  --orange: #fd7e14;
+  --yellow: #f6c23e;
+  --green: #1cc88a;
+  --teal: #20c9a6;
+  --cyan: #36b9cc;
+  --white: #fff;
+  --gray: #858796;
+  --gray-dark: #5a5c69;
+  --primary: #4e73df;
+  --secondary: #858796;
+  --success: #1cc88a;
+  --info: #36b9cc;
+  --warning: #f6c23e;
+  --danger: #e74a3b;
+  --light: #f8f9fc;
+  --dark: #5a5c69;
+  --principal: #544688;
+  --secondary: #1F173A;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Grandstander', cursive;
+}
+
+a, p {
+  font-family: 'Varela Round', sans-serif;
+}
+
+.color-principal {
+  color: var(--principal)
+}
+
+
+.text-principal-color {
+   color: var(--principal)
+}
+
+
+.bg-gradient-primary {
+  background: rgb(84,70,136);
+background: linear-gradient(180deg, rgba(84,70,136,1) 0%, rgba(31,23,58,1) 100%);
+}
+
+.basic-nav-div {
+  width: 100%;
+  height: 30px;
+  background-color: var(--secondary) ;
+}
+
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+#login-card {
+  border-radius: 20px;
+}
+
+.input-group-text {
+  background-color: #fff;
+  border-right: 0px !important;
+  border-radius: 20px 0px 0px 20px;
+  padding-left: 20px;
+
+}
+
+.input-group-prepend {
+  border-right: 0px !important;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.input-group input {
+  border-left: 0px !important;
+}
+
+.btn-user {
+  background-color: var(--principal);
+  border: 0px;
+  min-width: 150px;
+}
+
+.btn-user:hover {
+  background-color: var(--secondary);
+}
+
+.outer-container {
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.register-container {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  border-radius: 20px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.outer-container-2 {
+  position: absolute;
+  width: 90%;
+  height: 86%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.logo {
+  max-width: 140px !important;
+}
+
+.dashboard-img {
+  max-width: 640px;
+  
+}
+
+.nav-link {
+  padding: 1rem 1rem 0.5rem 1rem !important;
+}
+
+.bg-register-image {
+  background: url("../img/taylor-kopel-JNm1dAElVtE-unsplash.jpg") !important;
+  background-color: var(--secondary) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
