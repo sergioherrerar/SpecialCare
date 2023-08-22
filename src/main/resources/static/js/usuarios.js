@@ -6,21 +6,27 @@ $(document).ready(function() {
 
 async function cagarUsuarios() {
 
-  const request = await fetch('usuarios', {
+  const request = await fetch('api/usuarios', {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
     }
   });
   const usuarios = await request.json();
-  let listadoHtml = ''
+  let listadoHtml = '';
+
+
   for (let usuario of usuarios) {
 
+    let phone_Number_text = usuario.phone_Number == null ? '-' : usuario.phone_Number;
+    let lastname_text = usuario.lastname == null ? '-' : usuario.lastname;
 
-    let usuarioHtml = `<tr><td>${usuario.id}</td><td>${usuario.name + " " + usuario.lastname}</td>
-                       <td>${usuario.email}</td><td>${usuario.password}</td><td>${usuario.phone_Number}</td>
-                       <td><a href="#" class="btn btn-danger btclassNamecle btn-sm"><i class="fas fa-trash"></iclassName </a></td></tr>`
+    let botonEliminar = `<a href="#" onclick="eliminarUsuario(${usuario.id})" class="btn btn-danger btclassNamecle btn-sm"><i class="fas fa-trash"></iclassName </a>`;
+    let usuarioHtml = `<tr><td>${usuario.id}</td><td>${usuario.name + " " + lastname_text }</td>
+                       <td>${usuario.email}</td><td>${usuario.password}</td><td>${phone_Number_text}</td>
+                       <td>${botonEliminar}</td></tr>`
 
     listadoHtml += usuarioHtml
   }
@@ -30,4 +36,26 @@ async function cagarUsuarios() {
 
  document.querySelector('#usuarios tbody').outerHTML = listadoHtml;
 
+}
+
+async function eliminarUsuario(id){
+
+  if(!confirm(`¿Desea eliminar este usuario`)){
+    return;
+  }
+
+  function getHeaders() {
+    return {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+    };
+  }
+
+
+  const request = await fetch('api/usuarios/' + id, {
+    method: 'DELETE',
+    headers: getHeaders()
+  });
+  location.reload();
 }

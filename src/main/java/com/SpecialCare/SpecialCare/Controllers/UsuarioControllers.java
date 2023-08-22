@@ -1,9 +1,12 @@
 package com.SpecialCare.SpecialCare.Controllers;
 
+import com.SpecialCare.SpecialCare.dao.UsuarioDao;
 import com.SpecialCare.SpecialCare.models.Usuario;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.SpecialCare.SpecialCare.utils.JWTUtil;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +15,12 @@ import java.util.List;
 @RestController
 public class UsuarioControllers {
 
-    @RequestMapping(value = "usuario/{id}")
+    @Autowired
+    private UsuarioDao usuarioDao;
+    @Autowired
+    private JWTUtil jwtUtil;
+
+    @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.GET)
     public Usuario getUsuario(@PathVariable Long id){
         Usuario usuario = new Usuario();
         usuario.setId(id);
@@ -23,38 +31,25 @@ public class UsuarioControllers {
         usuario.setEmail("sergio.herrera@hotmail.com");
         return usuario;
     }
-    @RequestMapping(value = "usuarios")
-    public List<Usuario> getUsuarios(){
-        List<Usuario> usuarios = new ArrayList<>();
-        Usuario usuario = new Usuario();
-        usuario.setId(123L);
-        usuario.setName("maria");
-        usuario.setLastname("herrera");
-        usuario.setPhone_Number("3153213391");
-        usuario.setPassword("123456");
-        usuario.setEmail("sergio.herrera@hotmail.com");
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
+    public List<Usuario> getUsuarios(@RequestHeader(value="Authorization") String token){
+        if(!validarToken(token)){return null;};
+        return usuarioDao.getUsuarios();
+    }
 
-        Usuario usuario2 = new Usuario();
-        usuario2.setId(1234L);
-        usuario2.setName("carlos");
-        usuario2.setLastname("huruña");
-        usuario2.setPhone_Number("3153213391");
-        usuario2.setPassword("123456");
-        usuario2.setEmail("sergio.herrera@hotmail.com");
+    private boolean validarToken(String token){
 
-        Usuario usuario3 = new Usuario();
-        usuario3.setId(12345L);
-        usuario3.setName("alex");
-        usuario3.setLastname("herrera");
-        usuario3.setPhone_Number("3153213391");
-        usuario3.setPassword("123456");
-        usuario3.setEmail("sergio.herrera@hotmail.com");
+        String usuarioId = jwtUtil.getKey(token);
+        return usuarioId != null;
+    }
 
-        usuarios.add(usuario);
-        usuarios.add(usuario2);
-        usuarios.add(usuario3);
+    @RequestMapping(value = "api/usuarios" , method = RequestMethod.POST)
+    public void registrarUsuario(@RequestBody Usuario usuario){
 
-        return usuarios;
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        String hash = argon2.hash(1, 1024, 1, usuario.getPassword());
+        usuario.setPassword(hash);
+        usuarioDao.registrar(usuario);
     }
 
     @RequestMapping(value = "usuarioEdit")
@@ -67,15 +62,11 @@ public class UsuarioControllers {
         usuario.setEmail("sergio.herrera@hotmail.com");
         return usuario;
     }
-    @RequestMapping(value = "usuarioDelete")
-    public Usuario delete(){
-        Usuario usuario = new Usuario();
-        usuario.setName("sergio");
-        usuario.setLastname("herrera");
-        usuario.setPhone_Number("3153213391");
-        usuario.setPassword("123456");
-        usuario.setEmail("sergio.herrera@hotmail.com");
-        return usuario;
+    @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.DELETE)
+    public void delete(@RequestHeader(value="Authorization") String token,
+                       @PathVariable Long id){
+        if(!validarToken(token)){return;};
+        usuarioDao.eliminar(id);
     }
     @RequestMapping(value = "usuarioSearch")
     public Usuario search(){
