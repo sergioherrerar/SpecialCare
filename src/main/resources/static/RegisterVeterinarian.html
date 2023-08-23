@@ -227,23 +227,35 @@
 
                                     <div class="form-group">
                                         <label>Nombre Completo:</label>
-                                        <input type="email" class="form-control form-control-user" id="txtName"
-                                               placeholder="">
+                                        <div class="col-sm">
+                                            <input type="email" class="form-control form-control-user" id="txtName"
+                                                   placeholder="">
+                                        </div>
                                     </div>
-                                    <label>Especialidad:</label>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="txtSpecialty"
-                                               placeholder="">
+                                    <div class="form-group row">
+                                        <label
+                                                for="txtName"
+                                                class="col-sm-auto col-form-label"
+                                        >Mascota:</label
+                                        >
+                                        <div class="col-sm">
+                                            <select
+                                                    class="form-control form-control-user"
+                                                    name=""
+                                                    id="txtSpecialitie"
+                                                    required
+                                            ></select>
+                                        </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <a onclick="registrarUsuario()" href="#" class="btn btn-primary btn-user btn-block">
+                                            <a  href="#" class="btn btn-primary btn-user btn-block">
                                                 Regresar
                                             </a>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a onclick="registrarUsuario()" href="#" class="btn btn-primary btn-user btn-block">
+                                            <a onclick="register()" href="#" class="btn btn-primary btn-user btn-block">
                                                 Crear
                                             </a>
                                         </div>
@@ -327,7 +339,7 @@
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="js/veterinarios.js"></script>
+<script src="js/RegisterVeterinarian.js"></script>
 
 </body>
 
