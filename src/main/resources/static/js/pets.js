@@ -102,13 +102,14 @@ async function deleteRecord(id) {
 
 async function register() {
   var data = {};
+  data.petOwnerId = "7";
   data.name = document.getElementById("txtName").value;
   data.gender = document.getElementById("txtGender").value;
   data.age = document.getElementById("txtAge").value;
   data.petTypeId = document.getElementById("txtPetType").value;
   data.breed = document.getElementById("txtBreed").value;
-  data.weigth = document.getElementById("txtWeight").value;
-  data.heigth = document.getElementById("txtHeight").value;
+  data.weight = document.getElementById("txtWeight").value;
+  data.height = document.getElementById("txtHeight").value;
   data.foodBrand = document.getElementById("txtFood").value;
   data.birthDate = document.getElementById("txtBirthDate").value;
   data.skinCoatRemarks = document.getElementById("txtSkinCoatRemarks").value;
@@ -119,11 +120,6 @@ async function register() {
   data.additionalRemarks = document.getElementById(
     "textAdditionalRemarks"
   ).value;
-  data.veterinarianId = document.getElementById("txtVeterinarian").value;
-  data.diseaseId = document.getElementById("txtDisease").value;
-  data.diagnosticDate = document.getElementById("txtDiagnosticDate").value;
-  data.remarks = document.getElementById("txtRemarks").value;
-  data.treatmentRemarks = document.getElementById("txtTreatmentRemarks").value;
 
   await fetch("api/pets", {
     method: "POST",

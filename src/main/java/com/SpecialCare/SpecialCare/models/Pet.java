@@ -56,9 +56,6 @@ public class Pet {
     @Column(name = "food_brand")
     private String foodBrand;
     
-    @Column(name = "category_food_remarks")
-    private String categoryFoodRemarks;
-    
     @Column(name = "birth_date")
     private String birthDate;
     
@@ -80,7 +77,7 @@ public class Pet {
     public Pet() {
     }
     
-    public Pet(Long id, String petOwnerId, String petTypeId, String name, String weight, String height, String age, String breed, String foodBrand, String categoryFoodRemarks, String birthDate, String skinCoatRemarks, String headRemarks, String eyesEarsNoseRemarks, String additionalRemarks, String image) {
+    public Pet(Long id, String petOwnerId, String petTypeId, String name, String weight, String height, String age, String breed, String foodBrand, String birthDate, String skinCoatRemarks, String headRemarks, String eyesEarsNoseRemarks, String additionalRemarks, String image) {
         this.id = id;
         this.petOwnerId = petOwnerId;
         this.petTypeId = petTypeId;
@@ -90,7 +87,6 @@ public class Pet {
         this.age = age;
         this.breed = breed;
         this.foodBrand = foodBrand;
-        this.categoryFoodRemarks = categoryFoodRemarks;
         this.birthDate = birthDate;
         this.skinCoatRemarks = skinCoatRemarks;
         this.headRemarks = headRemarks;

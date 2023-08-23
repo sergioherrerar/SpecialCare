@@ -45,8 +45,7 @@ public class UserController {
     }
     
     @RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
-    public void delete(@RequestHeader(value="Authorization") String token, @PathVariable Long id) {
-        if(!validateToken(token)){return;};
+    public void delete( @PathVariable Long id) {
         userDao.delete(id);
     }
     
