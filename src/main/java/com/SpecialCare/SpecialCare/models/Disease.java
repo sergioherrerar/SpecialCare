@@ -29,15 +29,15 @@ public class Disease {
   private String symptomsRemarks;
   
   @Column(name = "is_chronicle")
-  private String isChronicle;
+  private boolean isChronicle;
   
   @Column(name = "is_deadly")
-  private String isDeadly;
+  private boolean isDeadly;
   
   public Disease() {
   }
   
-  public Disease(Long id, String name, String description, String symptomsRemarks, String isChronicle, String isDeadly) {
+  public Disease(Long id, String name, String description, String symptomsRemarks, boolean isChronicle, boolean isDeadly) {
     this.id = id;
     this.name = name;
     this.description = description;

@@ -17,6 +17,8 @@ public class DiseaseDaoImp implements DiseaseDao {
   
   @Override
   public void create(Disease disease) {
+    System.out.println(disease.isChronicle());
+    
     entityManager.merge(disease);
   }
   

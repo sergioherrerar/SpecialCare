@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Mascotas - Tables</title>
+    <title>Mascotas - Form</title>
 
     <!-- Custom fonts for this template -->
     <link
@@ -251,7 +251,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Mascotas</h1>
+            <h1 class="h3 mb-2 text-gray-800">Creación Registro Mascota</h1>
             <p class="mb-4">
               Los dueños de mascotas podran tener un control de su mascota para
               darles un mejor estilo de vida
@@ -262,36 +262,241 @@
               >.
             </p>
 
-            <div class="d-flex justify-content-end mb-3">
-              <a href="create-pet.html" class="btn btn-success"
-                >Crear Registro</a
-              >
-            </div>
-
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-body">
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="table"
-                    width="100%"
-                    cellspacing="0"
+                <form>
+                  <div
+                    class="container overflow-auto"
+                    style="max-height: 350px"
                   >
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Nombre Mascota</th>
-                        <th>Mascota</th>
-                        <th>Raza</th>
-                        <th>Género</th>
-                        <th>Edad</th>
-                        <th>Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div
+                          class="d-flex justify-content-center align-items-center h-100"
+                        >
+                          <img src="img/photo.png" class="image-pet" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 pt-3">
+                        <h1 class="h3 mb-2 color-principal text-center mb-4">
+                          Información de la Mascota
+                        </h1>
+
+                        <div class="form-group row">
+                          <label
+                            for="txtName"
+                            class="col-sm-auto col-form-label"
+                            >Nombre:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtName"
+                              value=""
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label
+                            for="txtGender"
+                            class="col-sm-auto col-form-label"
+                            >Género:</label
+                          >
+                          <div class="col-sm">
+                            <select
+                              class="form-control form-control-user"
+                              name=""
+                              id="txtGender"
+                              required
+                            >
+                              <option value="Masculino">Masculino</option>
+                              <option value="Femenino">Femenino</option>
+                            </select>
+                          </div>
+                          <label for="txtAge" class="col-sm-auto col-form-label"
+                            >Edad:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtAge"
+                              value=""
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label
+                            for="txtPetType"
+                            class="col-sm-auto col-form-label"
+                            >Mascota:</label
+                          >
+                          <div class="col-sm">
+                            <select
+                              class="form-control form-control-user"
+                              name=""
+                              id="txtPetType"
+                              required
+                            ></select>
+                          </div>
+                          <label
+                            for="txtBreed"
+                            class="col-sm-auto col-form-label"
+                            >Raza:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtBreed"
+                              value=""
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label
+                            for="txtWeight"
+                            class="col-sm-auto col-form-label"
+                            >Peso:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtWeight"
+                              value=""
+                              required
+                            />
+                          </div>
+                          <label
+                            for="txtHeight"
+                            class="col-sm-auto col-form-label"
+                            >Altura:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtHeight"
+                              value=""
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label
+                            for="txtFood"
+                            class="col-sm-auto col-form-label"
+                            >Comida:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtFood"
+                              value=""
+                              required
+                            />
+                          </div>
+                          <label
+                            for="txtBirthDate"
+                            class="col-sm-auto col-form-label"
+                            >Nacimiento:</label
+                          >
+                          <div class="col-sm">
+                            <input
+                              type="date"
+                              class="form-control form-control-user"
+                              id="txtBirthDate"
+                              value=""
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ml-2">
+                      <h5>Observaciones Relacionadas</h5>
+                      <hr />
+                    </div>
+
+                    <div class="form-group row justify-content-center">
+                      <div class="col-sm-4 row">
+                        <label for="txtSkinCoatRemarks" class="col-sm-12"
+                          >Pelaje y Piel:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="txtSkinCoatRemarks"
+                          rows="6"
+                          required
+                        ></textarea>
+                      </div>
+                      <div class="col-sm-4 row mx-1">
+                        <label for="txtHeadRemarks" class="col-sm-12"
+                          >Cabeza:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="txtHeadRemarks"
+                          rows="6"
+                          required
+                        ></textarea>
+                      </div>
+                      <div class="col-sm-4 row">
+                        <label for="txtEyesEarsNoseRemarks" class="col-sm-12"
+                          >Ojos, orejas y nariz:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="txtEyesEarsNoseRemarks"
+                          rows="6"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div class="row ml-2">
+                      <div class="col-sm-6 row">
+                        <label for="textAdditionalRemarks" class="col-sm-12"
+                          >Comentarios Adicionales:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="textAdditionalRemarks"
+                          rows="6"
+                          required
+                        ></textarea>
+                      </div>
+                      <div
+                        class="col-sm-6 row justify-content-center align-items-center flex-column-reverse"
+                      >
+                        <a
+                          onclick="register()"
+                          href="#"
+                          class="btn btn-secondary px-5 my-2"
+                        >
+                          Cancelar
+                        </a>
+                        <a
+                          onclick="register()"
+                          href="#"
+                          class="btn btn-success px-5 my-2"
+                        >
+                          Registrar
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                </form>
               </div>
             </div>
           </div>

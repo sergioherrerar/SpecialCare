@@ -159,3 +159,13 @@ background: linear-gradient(180deg, rgba(84,70,136,1) 0%, rgba(31,23,58,1) 100%)
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
+
+label {
+  font-weight: bold;
+}
+
+.image-pet {
+  width: 400px !important;
+  height: 250px !important;
+
+}

@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Mascotas - Tables</title>
+    <title>Enfermedades - Form</title>
 
     <!-- Custom fonts for this template -->
     <link
@@ -68,7 +68,7 @@
         <div class="sidebar-heading">PRINCIPAL</div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="pets.html">
             <i class="fas fa-fw fa-paw"></i>
             <span>Mascotas</span></a
@@ -90,7 +90,7 @@
         </li>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="diseases.html">
             <i class="fas fa-fw fa-virus"></i>
             <span>Enfermedades</span></a
@@ -251,7 +251,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Mascotas</h1>
+            <h1 class="h3 mb-2 text-gray-800">Creación Registro Enfermedad</h1>
             <p class="mb-4">
               Los dueños de mascotas podran tener un control de su mascota para
               darles un mejor estilo de vida
@@ -262,36 +262,117 @@
               >.
             </p>
 
-            <div class="d-flex justify-content-end mb-3">
-              <a href="create-pet.html" class="btn btn-success"
-                >Crear Registro</a
-              >
-            </div>
-
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-body">
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="table"
-                    width="100%"
-                    cellspacing="0"
+                <form>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group row">
+                          <label for="txtName" class="col-sm-2 col-form-label"
+                            >Nombre:</label
+                          >
+                          <div class="col-sm-8">
+                            <input
+                              type="text"
+                              class="form-control form-control-user"
+                              id="txtName"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <hr />
+
+                        <div class="form-group row">
+                          <div class="col-sm-6 row">
+                            <label for="txtDescription" class="col-sm-12"
+                              >Descripción General:</label
+                            >
+                            <textarea
+                              class="form-control"
+                              id="txtDescription"
+                              rows="6"
+                              required
+                            ></textarea>
+                          </div>
+                          <div class="col-sm-6 ml-1 row">
+                            <label for="txtSymptomsRemarks" class="col-sm-12"
+                              >Sintomas:</label
+                            >
+                            <textarea
+                              class="form-control"
+                              id="txtSymptomsRemarks"
+                              rows="3"
+                              required
+                            ></textarea>
+                            <div class="pt-2">
+                              <div class="form-check my-2">
+                                <div class="px-1">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="txtIsChronicle"
+                                    required
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="defaultCheck1"
+                                  >
+                                    ¿Es Crónica?
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="form-check my-2">
+                                <div class="px-1">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="txtIsDeadly"
+                                    required
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="defaultCheck1"
+                                  >
+                                    ¿Es Mortal?
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div
+                          class="d-flex justify-content-center align-items-center h-100"
+                        >
+                          <i
+                            class="fas fa-fw fa-virus fa-10x color-principal"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-sm-12 row justify-content-center align-items-center"
                   >
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Nombre Mascota</th>
-                        <th>Mascota</th>
-                        <th>Raza</th>
-                        <th>Género</th>
-                        <th>Edad</th>
-                        <th>Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
+                    <a
+                      href="diseases.html"
+                      class="btn btn-secondary px-5 my-2 mx-2"
+                    >
+                      Cancelar
+                    </a>
+                    <a
+                      onclick="register()"
+                      href="#"
+                      class="btn btn-success px-5 my-2 mx-2"
+                    >
+                      Registrar
+                    </a>
+                  </div>
+                  <hr />
+                </form>
               </div>
             </div>
           </div>
@@ -372,6 +453,6 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/pets.js"></script>
+    <script src="js/diseases.js"></script>
   </body>
 </html>

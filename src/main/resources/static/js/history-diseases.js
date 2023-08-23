@@ -1,11 +1,66 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
   load();
-  loadPetTypes();
+  loadPets();
+  loadVeterinarians();
+  loadDiseases();
+
   $("#table").DataTable();
 });
 
 async function load() {
+  const request = await fetch("api/history-diseases", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+
+  const historyDiseases = await request.json();
+
+  var html = "";
+  for (var history of historyDiseases) {
+    var getButton =
+      '<a href="#" onclick="getRecord(' +
+      history.id +
+      ')" class="btn btn-primary btn-circle btn-sm mx-1"><i class="fas fa-eye"></i></a>';
+
+    var updateButton =
+      '<a href="#" onclick="updateRecord(' +
+      history.id +
+      ')" class="btn btn-warning btn-circle btn-sm mx-1"><i class="fas fa-pencil-alt"></i></a>';
+
+    var deleteButton =
+      '<a href="#" onclick="deleteRecord(' +
+      history.id +
+      ')" class="btn btn-danger btn-circle btn-sm mx-1"><i class="fas fa-trash"></i></a>';
+
+    var rowHtml =
+      "<tr><td>" +
+      history.id +
+      "</td><td>" +
+      history.disease.name +
+      "</td><td>" +
+      history.veterinarian.fullname +
+      "</td><td>" +
+      history.diagnosticDate +
+      "</td><td>" +
+      (history.remarks.length > 40
+        ? history.remarks.substring(0, 40) + " [...]"
+        : history.remarks) +
+      "</td><td>" +
+      getButton +
+      updateButton +
+      deleteButton +
+      "</td></tr>";
+    html += rowHtml;
+  }
+
+  document.querySelector("#table tbody").outerHTML = html;
+}
+
+async function loadPets() {
   const request = await fetch("api/pets", {
     method: "GET",
     headers: {
@@ -18,49 +73,15 @@ async function load() {
 
   var html = "";
   for (var pet of pets) {
-    var getButton =
-      '<a href="#" onclick="getRecord(' +
-      pet.id +
-      ')" class="btn btn-primary btn-circle btn-sm mx-1"><i class="fas fa-eye"></i></a>';
-
-    var updateButton =
-      '<a href="#" onclick="updateRecord(' +
-      pet.id +
-      ')" class="btn btn-warning btn-circle btn-sm mx-1"><i class="fas fa-pencil-alt"></i></a>';
-
-    var deleteButton =
-      '<a href="#" onclick="deleteRecord(' +
-      pet.id +
-      ')" class="btn btn-danger btn-circle btn-sm mx-1"><i class="fas fa-trash"></i></a>';
-
-    var rowHtml =
-      "<tr><td>" +
-      pet.id +
-      "</td><td>" +
-      pet.name +
-      "</td><td>" +
-      pet.petType.name +
-      "</td><td>" +
-      pet.breed +
-      "</td><td>" +
-      (pet.gender == "male"
-        ? '<i class="fas fa-venus color-principal"></i>'
-        : '<i class="fas fa-mars color-principal"></i>') +
-      "</td><td>" +
-      pet.age +
-      "</td><td>" +
-      getButton +
-      updateButton +
-      deleteButton +
-      "</td></tr>";
+    var rowHtml = `<option value="${pet.id}">${pet.id} - ${pet.name}</option>`;
     html += rowHtml;
   }
 
-  document.querySelector("#table tbody").outerHTML = html;
+  document.querySelector("#txtPet").innerHTML = html;
 }
 
-async function loadPetTypes() {
-  const request = await fetch("api/pet-types", {
+async function loadVeterinarians() {
+  const request = await fetch("api/veterinarians", {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -68,15 +89,35 @@ async function loadPetTypes() {
     },
   });
 
-  const petTypes = await request.json();
+  const veterinarians = await request.json();
 
   var html = "";
-  for (var petType of petTypes) {
-    var rowHtml = `<option value="${petType.id}">${petType.id} - ${petType.name}</option>`;
+  for (var veterinarian of veterinarians) {
+    var rowHtml = `<option value="${veterinarian.id}">${veterinarian.id} - ${veterinarian.fullname}</option>`;
     html += rowHtml;
   }
 
-  document.querySelector("#txtPetType").innerHTML = html;
+  document.querySelector("#txtVeterinarian").innerHTML = html;
+}
+
+async function loadDiseases() {
+  const request = await fetch("api/diseases", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+
+  const diseases = await request.json();
+
+  var html = "";
+  for (var disease of diseases) {
+    var rowHtml = `<option value="${disease.id}">${disease.id} - ${disease.name}</option>`;
+    html += rowHtml;
+  }
+
+  document.querySelector("#txtDisease").innerHTML = html;
 }
 
 async function deleteRecord(id) {
@@ -92,7 +133,7 @@ async function deleteRecord(id) {
     };
   }
 
-  const request = await fetch("api/pets/" + id, {
+  const request = await fetch("api/history-diseases/" + id, {
     method: "DELETE",
     headers: getHeaders(),
   });
@@ -102,30 +143,14 @@ async function deleteRecord(id) {
 
 async function register() {
   var data = {};
-  data.name = document.getElementById("txtName").value;
-  data.gender = document.getElementById("txtGender").value;
-  data.age = document.getElementById("txtAge").value;
-  data.petTypeId = document.getElementById("txtPetType").value;
-  data.breed = document.getElementById("txtBreed").value;
-  data.weigth = document.getElementById("txtWeight").value;
-  data.heigth = document.getElementById("txtHeight").value;
-  data.foodBrand = document.getElementById("txtFood").value;
-  data.birthDate = document.getElementById("txtBirthDate").value;
-  data.skinCoatRemarks = document.getElementById("txtSkinCoatRemarks").value;
-  data.headRemarks = document.getElementById("txtHeadRemarks").value;
-  data.eyesEarsNoseRemarks = document.getElementById(
-    "txtEyesEarsNoseRemarks"
-  ).value;
-  data.additionalRemarks = document.getElementById(
-    "textAdditionalRemarks"
-  ).value;
+  data.petId = document.getElementById("txtPet").value;
   data.veterinarianId = document.getElementById("txtVeterinarian").value;
   data.diseaseId = document.getElementById("txtDisease").value;
   data.diagnosticDate = document.getElementById("txtDiagnosticDate").value;
   data.remarks = document.getElementById("txtRemarks").value;
   data.treatmentRemarks = document.getElementById("txtTreatmentRemarks").value;
 
-  await fetch("api/pets", {
+  await fetch("api/history-diseases", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -136,5 +161,5 @@ async function register() {
 
   alert("¡El registro fue creado con éxito!");
 
-  //window.location.href = "pets.html";
+  window.location.href = "history-diseases.html";
 }

@@ -43,18 +43,22 @@ public class HistoryDisease {
   @Column(name = "diagnostic_date")
   private String diagnosticDate;
   
+  @Column(name = "remarks")
+  private String remarks;
+  
   @Column(name = "treatment_remarks")
   private String treatmentRemarks;
   
   public HistoryDisease() {
   }
   
-  public HistoryDisease(Long id, String petId, String diseaseId, String veterinarianId, String diagnosticDate, String treatmentRemarks) {
+  public HistoryDisease(Long id, String petId, String diseaseId, String veterinarianId, String diagnosticDate, String remarks, String treatmentRemarks) {
     this.id = id;
     this.petId = petId;
     this.diseaseId = diseaseId;
     this.veterinarianId = veterinarianId;
     this.diagnosticDate = diagnosticDate;
+    this.remarks = remarks;
     this.treatmentRemarks = treatmentRemarks;
   }
 }
